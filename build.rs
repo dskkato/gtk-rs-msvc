@@ -16,11 +16,17 @@ fn win_main() {
     let target_triple = std::env::var("TARGET").unwrap();
     println!("{}", std::env::var("VCPKG_PATH").unwrap());
     if target_triple == "x86_64-pc-windows-msvc" {
-        std::env::set_var("GTK_LIB_DIR",
-            std::path::Path::new(&std::env::var("VCPKG_PATH").unwrap()).join("installed\\x64-windows\\lib"));
+        std::env::set_var(
+            "GTK_LIB_DIR",
+            std::path::Path::new(&std::env::var("VCPKG_PATH").unwrap())
+                .join("installed\\x64-windows\\lib"),
+        );
     } else if target_triple == "i686-pc-windows-msvc" {
-        std::env::set_var("GTK_LIB_DIR",
-            std::path::Path::new(&std::env::var("VCPKG_PATH").unwrap()).join("installed\\x86-windows\\lib"));
+        std::env::set_var(
+            "GTK_LIB_DIR",
+            std::path::Path::new(&std::env::var("VCPKG_PATH").unwrap())
+                .join("installed\\x86-windows\\lib"),
+        );
     } else {
         panic!();
     }
